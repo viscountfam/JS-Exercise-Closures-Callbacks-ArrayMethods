@@ -176,8 +176,9 @@ return callback(list.includes(item));
  * [2] Invoking `processDuplicateFree` passing `[1,1,2,2,3]` and `(arr) => arr.length`,
  * should return 3.
 */
-function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */) {
+function processDuplicateFree(list, callback) {
   /* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */
+  return callback([... new Set(list)]);
 }
 
 /////////////// HIGHER-ORDER ARRAY METHODS ///////////////
@@ -313,19 +314,21 @@ function counterMaker() {
  * counter() // should return 0
  * etc
 */
-function counterMakerWithLimit() {
+function counterMakerWithLimit(max) {
   /* CODE HERE */
-  const maker1 = function counter(){
-    let count = 0;
-    const maxValue = 3;
-      if(count === maxValue){
+  let count = 0;
+   function counter(){
+      if(count <= max){
+        return count++;
+      }else {
         count = 0;
-        }
-    return count++;
+        return count++;
+      }
+       
   
     
   }
-  return maker1
+  return counter 
 }
 
 /////////////// END OF CHALLENGE ///////////////
